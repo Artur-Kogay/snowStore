@@ -1,0 +1,37 @@
+.order {
+  background: #1d1932;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 18px;
+  margin: 20px 0;
+  padding: 8px 11px;
+  .order__info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 200px;
+
+    h1 {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+  .order__image {
+    width: 65px;
+    height: 44px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
