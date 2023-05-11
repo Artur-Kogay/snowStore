@@ -1,31 +1,56 @@
 $maxWidth: 1440;
 
 @mixin adaptiv-font($pcSize, $mobSize) {
-  $addSize: $pcSize - $mobSize;
-  $maxWidth: $maxWidth - 320;
-  font-size: calc(
-    #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
-  );
+  @media screen and (max-width: 1440px) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(
+      #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
+    );
+  }
 }
 
 .basket {
+  max-width: 1440px;
+  width: 100%;
   font-family: "Poppins", sans-serif;
   font-style: normal;
   color: #ffffff;
   padding: 0 5%;
+  box-sizing: border-box;
+  margin: 0 auto;
 
   .bids {
-    h1 {
-      font-weight: 600;
-      @include adaptiv-font(24, 15);
-      line-height: 36px;
-    }
+    .bids__title {
+      display: flex;
+      align-items: last baseline;
+      justify-content: space-between;
+      gap: 20px;
+      h1 {
+        font-weight: 600;
+        @include adaptiv-font(24, 15);
+        line-height: 36px;
+      }
 
-    h2 {
-      font-weight: 400;
-      @include adaptiv-font(14, 10);
-      line-height: 21px;
-      margin: 0 0 30px;
+      h2 {
+        font-weight: 400;
+        @include adaptiv-font(14, 10);
+        line-height: 21px;
+        margin: 0 0 30px;
+      }
+
+      .bids__routing {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        span {
+          cursor: pointer;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 21px;
+          color: #6c7aa0;
+        }
+      }
     }
 
     .bidsCards {
@@ -34,7 +59,7 @@ $maxWidth: 1440;
       gap: 10px;
 
       .bidsCard {
-        max-width: 290px;
+        max-width: 400px;
         width: 100%;
         display: flex;
         align-items: center;
@@ -44,11 +69,13 @@ $maxWidth: 1440;
         cursor: pointer;
         padding: 21px 20px 20px 20px;
         box-sizing: border-box;
+        transition: 0.3s;
 
-        &:hover{
+        &:hover {
           box-shadow: 5px 5px 5px -2px rgba(110, 77, 242, 0.6);
+          transition: 0.3s;
         }
-        
+
         .bidsCard__text {
           h1 {
             font-weight: 600;
@@ -68,14 +95,39 @@ $maxWidth: 1440;
   }
 
   .orders {
+    overflow: auto;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+      background: #131129;
+      border: 1px solid #fffafa;
+      border-radius: 13.5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #fffafa;
+      border-radius: 13.5px;
+    }
+
     .orders__title {
-      font-weight: 600;
-      @include adaptiv-font(24, 15);
-      line-height: 36px;
-      margin: 50px 0 61px;
+      display: flex;
+      align-items: last baseline;
+      justify-content: space-between;
+      gap: 20px;
+
+      h1 {
+        font-weight: 600;
+        @include adaptiv-font(24, 15);
+        line-height: 36px;
+        margin: 50px 0 61px;
+      }
+      button {
+        max-width: 200px;
+      }
     }
 
     .orders__description {
+      min-width: 650px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -87,6 +139,17 @@ $maxWidth: 1440;
         font-weight: 600;
         @include adaptiv-font(14, 10);
         line-height: 21px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .basket {
+    .bids {
+      .bidsCards {
+        justify-content: center;
+        flex-wrap: wrap;
       }
     }
   }

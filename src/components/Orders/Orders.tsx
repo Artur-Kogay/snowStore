@@ -8,13 +8,17 @@ import imageSecond from "../../../public/markSecond.svg";
 import imageThird from "../../../public/markThird.svg";
 import imageFour from "../../../public/markFour.svg";
 import { Data, data } from "@/data/orders";
+import MyButton from "../MUI/MyButton/MyButton";
 
 const Orders: FC = () => {
-
+  // Состояние - данный заказов
   const [ordersData, setOrdersData] = useState(data);
 
   // Функция - для удаление карточек
-  const removeOrder = (item: Data, event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+  const removeOrder = (
+    item: Data,
+    event: React.MouseEvent<HTMLSpanElement, MouseEvent>
+  ) => {
     event.stopPropagation();
     setOrdersData(ordersData.filter((current) => current.id !== item.id));
   };
@@ -22,8 +26,17 @@ const Orders: FC = () => {
   return (
     <div className={s.basket}>
       <div className={s.bids}>
-        <h1>Bids</h1>
-        <h2>Welcome Bids Page</h2>
+        <div className={s.bids__title}>
+          <div>
+            <h1>Bids</h1>
+            <h2>Welcome Bids Page</h2>
+          </div>
+          <div className={s.bids__routing}>
+            <span>Bids </span>
+            &gt;
+            <span> Home</span>
+          </div>
+        </div>
 
         <div className={s.bidsCards}>
           <div className={s.bidsCard}>
@@ -61,7 +74,10 @@ const Orders: FC = () => {
       </div>
 
       <div className={s.orders}>
-        <h1 className={s.orders__title}>Active Bids</h1>
+        <div className={s.orders__title}>
+          <h1>Active Bids</h1>
+          <MyButton>Place a Bid</MyButton>
+        </div>
 
         <ul className={s.orders__description}>
           <li>
@@ -75,7 +91,7 @@ const Orders: FC = () => {
         </ul>
 
         {ordersData.map((item: Data) => {
-          return <Order order={item} removeOrder={removeOrder}/>;
+          return <Order key={item.id} order={item} removeOrder={removeOrder} />;
         })}
       </div>
     </div>
