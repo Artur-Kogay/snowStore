@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import s from "./Order.module.scss";
 import cn from "classnames";
 import Image from "next/image";
@@ -11,29 +11,21 @@ interface OrderProps {
     order: Data,
     event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => void;
+  handleCheckboxChange: (id: number) => void;
 }
 
-const Order: FC<OrderProps> = ({ order, removeOrder }) => {
-  // ----------------------------------------------------------------
-  // Для анимации когда чекбокс активна
-  const [isChecked, setIsChecked] = useState<boolean | null>(null);  
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
+const Order: FC<OrderProps> = ({
+  order,
+  removeOrder,
+  handleCheckboxChange,
+}) => {
   return (
-    <div className={isChecked ? cn(s.order, s.orderActive) : s.order}>
-      <input type="checkbox" onChange={handleCheckboxChange} />
-
+    <div className={order.checked ? cn(s.order, s.orderActive) : s.order}>
+      <input
+        type="checkbox"
+        onChange={() => handleCheckboxChange(order.id)}
+        checked={order.checked}
+      />
       <div className={s.order__info}>
         <Image src={order.imageFirst} alt="order image" />
         <div>

@@ -1,12 +1,4 @@
-$maxWidth: 1440;
-
-@mixin adaptiv-font($pcSize, $mobSize) {
-  $addSize: $pcSize - $mobSize;
-  $maxWidth: $maxWidth - 320;
-  font-size: calc(
-    #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
-  );
-}
+@import '../../styles/varibales.scss';
 
 .order {
   min-width: 650px;
@@ -57,8 +49,9 @@ $maxWidth: 1440;
     cursor: pointer;
     padding: 10px;
     box-sizing: border-box;
+
     &:hover {
-      color: #6f4ff2;
+      color: blue;
       transition: 0.3s;
     }
   }

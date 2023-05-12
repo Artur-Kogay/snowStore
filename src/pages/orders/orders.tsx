@@ -1,28 +1,58 @@
-import React, { FC, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import s from "./Orders.module.scss";
-import Order from "../Order/Order";
 import Image from "next/image";
-
+import { Data, data } from "@/data/orders";
 import imageFirst from "../../../public/markFirst.svg";
 import imageSecond from "../../../public/markSecond.svg";
 import imageThird from "../../../public/markThird.svg";
 import imageFour from "../../../public/markFour.svg";
-import { Data, data } from "@/data/orders";
-import MyButton from "../MUI/MyButton/MyButton";
+
+import Order from "../../components/Order/Order";
+import MyButton from "../../components/MUI/MyButton/MyButton";
 
 const Orders: FC = () => {
   // Состояние - данный заказов
-  const [ordersData, setOrdersData] = useState(data);
+  const [ordersData, setOrdersData] = useState<Data[]>(data);
 
   // Функция - для удаление карточек
   const removeOrder = (
-    item: Data,
+    order: Data,
     event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     event.stopPropagation();
-    setOrdersData(ordersData.filter((current) => current.id !== item.id));
+    setOrdersData(ordersData.filter((current) => current.id !== order.id));
   };
 
+  // ----------------------------------------------------------------
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+  useEffect(() => {
+    const result = ordersData.every((item) => item.checked === true);
+    setIsChecked(result);
+  }, [ordersData]);
+ 
+  // Функция - для установки состояния всех чекбоксов
+  const handleMainCheckboxChange = ({
+    target,
+  }: ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(!isChecked);
+    setOrdersData(
+      ordersData.map((item) => {
+        return {
+          ...item,
+          checked: target.checked,
+        };
+      })
+    );
+  };
+
+  // Функция - для установки состояния отдельного чекбокса
+  const handleCheckboxChange = (id: number) => {
+    setOrdersData(
+      ordersData.map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item
+      )
+    );
+  };
   return (
     <div className={s.basket}>
       <div className={s.bids}>
@@ -81,7 +111,7 @@ const Orders: FC = () => {
 
         <ul className={s.orders__description}>
           <li>
-            <input type="checkbox" />
+            <input type="checkbox" checked={isChecked} onChange={handleMainCheckboxChange} />
           </li>
           <li>Item List</li>
           <li>Open Price</li>
@@ -91,7 +121,14 @@ const Orders: FC = () => {
         </ul>
 
         {ordersData.map((item: Data) => {
-          return <Order key={item.id} order={item} removeOrder={removeOrder} />;
+          return (
+            <Order
+              key={item.id}
+              order={item}
+              handleCheckboxChange={handleCheckboxChange}
+              removeOrder={removeOrder}
+            />
+          );
         })}
       </div>
     </div>
