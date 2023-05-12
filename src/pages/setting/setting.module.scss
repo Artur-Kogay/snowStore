@@ -1,37 +1,141 @@
-@import '../../styles/varibales.scss';
+@import "../../styles/varibales.scss";
 
 .setting {
   max-width: 1440px;
   width: 100%;
   color: #ffffff;
-  padding: 0 5%;
+  padding: 0 5% 5%;
   box-sizing: border-box;
   margin: 0 auto;
+
   .setting__title {
+    display: flex;
+    align-items: last baseline;
+    justify-content: space-between;
     margin: 0 0 30px;
+
     h1 {
       font-weight: 600;
       @include adaptiv-font(18, 14);
       line-height: 27px;
     }
+
     h2 {
       font-weight: 400;
       @include adaptiv-font(14, 10);
       line-height: 21px;
     }
+
+    .setting__routing {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      a {
+        cursor: pointer;
+        font-weight: 400;
+        @include adaptiv-font(14, 10);
+        line-height: 21px;
+        color: #6c7aa0;
+
+        &:hover {
+          color: #6f4ff2;
+        }
+      }
+    }
   }
 
   .setting__nav {
     margin: 0 0 50px;
+
     .setting__list {
       display: flex;
       align-items: center;
       gap: 20px;
+      flex-wrap: wrap;
+
       li {
         cursor: pointer;
         font-weight: 400;
         @include adaptiv-font(14, 10);
         line-height: 21px;
+        transition: 0.3s;
+
+        &:hover {
+          color: #6f4ff2;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+
+  .setting__cards {
+    .setting__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 45px;
+      margin: 0 0 50px;
+      .card__info {
+        height: 71px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .card__fullname {
+          h1 {
+            font-weight: 600;
+            @include adaptiv-font(14, 12);
+            line-height: 21px;
+          }
+
+          h2 {
+            font-weight: 400;
+            @include adaptiv-font(12, 10);
+            line-height: 18px;
+          }
+        }
+      }
+    }
+
+    .personal {
+      display: flex;
+      justify-content: space-between;
+      gap: 23px;
+      .personal__item {
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .setting {
+    .setting__title {
+      margin: 0 0 23px;
+    }
+
+    .setting__nav {
+      margin: 0 0 30px;
+    }
+
+    .setting__cards {
+      .setting__top {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin: 0 0 30px;
+      }
+
+      .personal {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .personal__item {
+          display: flex;
+          gap: 15px;
+        }
       }
     }
   }

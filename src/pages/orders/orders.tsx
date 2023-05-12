@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
-import s from "./Orders.module.scss";
+import s from "./orders.module.scss";
 import Image from "next/image";
 import { Data, data } from "@/data/orders";
 import imageFirst from "../../../public/markFirst.svg";
@@ -9,6 +9,7 @@ import imageFour from "../../../public/markFour.svg";
 
 import Order from "../../components/Order/Order";
 import MyButton from "../../components/MUI/MyButton/MyButton";
+import Link from "next/link";
 
 const Orders: FC = () => {
   // Состояние - данный заказов
@@ -29,7 +30,7 @@ const Orders: FC = () => {
     const result = ordersData.every((item) => item.checked === true);
     setIsChecked(result);
   }, [ordersData]);
- 
+
   // Функция - для установки состояния всех чекбоксов
   const handleMainCheckboxChange = ({
     target,
@@ -61,10 +62,11 @@ const Orders: FC = () => {
             <h1>Bids</h1>
             <h2>Welcome Bids Page</h2>
           </div>
+
           <div className={s.bids__routing}>
-            <span>Bids </span>
+            <Link href={'/orders/orders'}>Bids</Link> 
             &gt;
-            <span> Home</span>
+            <Link href={'/'}>Home</Link> 
           </div>
         </div>
 
@@ -111,7 +113,11 @@ const Orders: FC = () => {
 
         <ul className={s.orders__description}>
           <li>
-            <input type="checkbox" checked={isChecked} onChange={handleMainCheckboxChange} />
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleMainCheckboxChange}
+            />
           </li>
           <li>Item List</li>
           <li>Open Price</li>

@@ -20,11 +20,12 @@ const Order: FC<OrderProps> = ({
   handleCheckboxChange,
 }) => {
   return (
-    <div className={order.checked ? cn(s.order, s.orderActive) : s.order}>
+   <label htmlFor={order.htmlFor} className={order.checked ? cn(s.order, s.orderActive) : s.order}>
       <input
         type="checkbox"
         onChange={() => handleCheckboxChange(order.id)}
         checked={order.checked}
+        id={order.htmlFor}
       />
       <div className={s.order__info}>
         <Image src={order.imageFirst} alt="order image" />
@@ -44,7 +45,7 @@ const Order: FC<OrderProps> = ({
       <p>{order.date}</p>
 
       <span onClick={(event) => removeOrder(order, event)}>X</span>
-    </div>
+   </label>
   );
 };
 

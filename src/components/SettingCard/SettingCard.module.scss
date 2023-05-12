@@ -1,0 +1,29 @@
+@import "../../styles/varibales.scss";
+
+.setting__card {
+    width: 100%;
+
+  .card__title {
+    font-weight: 600;
+    @include adaptiv-font(18, 14);
+    line-height: 27px;
+    margin: 0 0 20px;
+  }
+
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #1d1932;
+    border-radius: 12px;
+    padding: 20px;
+    
+    input {
+        max-width: 600px;
+      }
+  
+      button {
+        max-width: 100px;
+      }
+  }
+}
