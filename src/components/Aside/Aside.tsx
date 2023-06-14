@@ -15,11 +15,13 @@ const Aside = () => {
         <div className={s.main_aside_navigation_top}>
           <Link href="/">
             {route.pathname === "/" ? (
-              <img src="/dashBoardActive.svg" alt="image" />
+              <img src="/dashBoardActive.svg" alt="image"/>
             ) : (
               <img src="/dashBoard.svg" alt="image" />
-            )}
+            )
+            }
           </Link>
+          
           <Link href="/orders/orders">
             {route.pathname === "/orders/orders" ? (
               <img src="/orderActive.svg" alt="image" />

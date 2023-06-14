@@ -10,7 +10,7 @@ const Layouts = ({ children }: PropsWithChildren) => {
         <Aside />
       </div>
       <div className={s.main_right}>
-        <Header />
+        {/* <Header /> */}
         {children}
       </div>    
     </div>

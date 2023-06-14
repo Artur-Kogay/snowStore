@@ -1,0 +1,228 @@
+.collection {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 3% 3%;
+  display: flex;
+  
+  flex-direction: column;
+  gap: 5vh;
+  .title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #ffffff;
+    align-items: center;
+    
+    .title_desc {
+      h4 {
+        font-size: 1.2rem;
+        font-family: 400;
+      }
+      p {
+        font-size: 0.87rem;
+        font-family: 400;
+      }
+    }
+    .setting__routing {
+      display: flex;
+      gap: 0.5vw;
+      a {
+        color: #6c7aa0;
+      }
+      a:hover{
+        transition: 0.3s;
+        color:#6D95FC
+      }
+    }
+  }
+  .button{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    height: 30px;
+    p{
+        font-family: 600;
+        color: #ffffff;
+    }
+    p:hover{
+        padding: 2px 4px 2px 4px;
+        border-radius: 10px;
+        transition: 0.3s;
+        background-color: #6D95FC;
+    }
+  }
+  .cards{
+    display: flex;
+    width: 100%;
+    gap: 2.2vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width:740px) {
+  .collection {
+    max-width: 740px;
+    width: 100%;
+    padding: 0 3% 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    .title {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: #ffffff;
+      align-items: center;
+      
+      .title_desc {
+        h4 {
+          font-size: 1.2rem;
+          font-family: 400;
+        }
+        p {
+          font-size: 0.87rem;
+          font-family: 400;
+        }
+      }
+      .setting__routing {
+        display: flex;
+        gap: 0.5vw;
+        a {
+          color: #6c7aa0;
+        }
+        a:hover{
+          transition: 0.3s;
+          color:#6D95FC
+        }
+      }
+    }
+    .button{
+      display: flex;
+      flex-direction: row;
+      gap: 1vw;
+      height: 30px;
+    }
+    .cards{
+      display: flex;
+      width: 100%;
+      gap: 3vw;
+      flex-direction: column;
+      padding-left: 10%;
+  
+    }
+  }
+}
+
+@media screen and (max-width:740px) {
+  .collection {
+    max-width: 740px;
+    width: 100%;
+    padding: 0 3% 3% 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    .title {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: #ffffff;
+      align-items: center;
+      
+      .title_desc {
+        h4 {
+          font-size: 0.9rem;
+          font-family: 400;
+        }
+        p {
+          font-size: 0.87rem;
+          font-family: 400;
+        }
+      }
+      .setting__routing {
+        display: flex;
+        gap: 0.5vw;
+        a {
+          color: #6c7aa0;
+        }
+        a:hover{
+          transition: 0.3s;
+          color:#6D95FC
+        }
+      }
+    }
+    .button{
+      display: flex;
+      flex-direction: row;
+      gap: 1vw;
+      height: 30px;
+    }
+    .cards{
+      display: flex;
+      width: 100%;
+      gap: 3vw;
+      flex-direction: column;
+      padding-left: 10%;
+  
+    }
+  }
+}
+
+@media screen and (max-width:550px) {
+  .collection {
+    max-width: 550px;
+    width: 100%;
+    padding: 0 1% 1% 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    .title {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: #ffffff;
+      align-items: center;
+      
+      .title_desc {
+        h4 {
+          font-size: 0.9rem;
+          font-family: 400;
+        }
+        p {
+          font-size: 0.87rem;
+          font-family: 400;
+        }
+      }
+      .setting__routing {
+        display: flex;
+        gap: 0.5vw;
+        a {
+          color: #6c7aa0;
+        }
+        a:hover{
+          transition: 0.3s;
+          color:#6D95FC
+        }
+      }
+    }
+    .button{
+      display: flex;
+      flex-direction: row;
+      gap: 1vw;
+      height: 40px;
+    }
+    .cards{
+      display: flex;
+      width: 90%;
+      gap: 3vw;
+      flex-direction: column;
+      padding-left: 10%;
+  
+    }
+  }
+}

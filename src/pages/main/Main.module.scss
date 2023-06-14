@@ -1,0 +1,66 @@
+.main {
+  max-width: 1440px;
+  width: 100%;
+  color: #ffffff;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0% 5% 5% 5%;
+  .desc_filter_of_cards{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    .more{
+        a{
+            color: #ffffff;
+        }
+        a:hover{
+            color:#6D95FC;
+            transition: 0.4s;
+        }
+    }
+}
+
+  .cards{
+    display: flex;
+    width: 100%;
+    gap: 1vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .main {
+  max-width: 1024px;
+  width: 100%;
+  color: #ffffff;
+  box-sizing: border-box;
+  margin: 0 auto;
+  .desc_filter_of_cards{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 10px;
+    .more{
+        a{
+            color: #ffffff;
+        }
+        a:hover{
+            color:#6D95FC;
+            transition: 0.4s;
+        }
+    }
+}
+
+  .cards{
+    display: flex;
+    width: 100%;
+    gap: 1vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+  
+}

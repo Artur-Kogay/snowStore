@@ -10,7 +10,7 @@
     @include fixed();
     padding: 30px 25px 70px 25px;
     background-color: rgba(29, 25, 50, 1);
-    height: 100vh;
+    min-height: 100vh;
     width: 80px;
     display: flex;
     flex-direction: column;
